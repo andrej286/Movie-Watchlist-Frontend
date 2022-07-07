@@ -9,6 +9,8 @@ import {MovieCardStyled} from "../../styles/MovieCard.styled";
 
 const Movies = (props) => {
 
+    console.log('Movie props here: ',props)
+
     const [activeGenre, setActiveGenre] = useState("ALL");
 
     const onFilter = (e) => {  //nema potreba

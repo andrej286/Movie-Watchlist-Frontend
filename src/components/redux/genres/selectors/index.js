@@ -1,0 +1,1 @@
+export const getGenreData = (state) => state?.genreData;
