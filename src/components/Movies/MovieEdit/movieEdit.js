@@ -1,7 +1,10 @@
 import React from 'react';
 import {useNavigate} from 'react-router-dom';
+import {useSelector} from "react-redux";
+import {getGenreData} from "../../redux/genres/selectors";
 
 const MovieEdit = (props) => {
+    const genres = useSelector(getGenreData);
 
     const navigate = useNavigate();
     const [formData, updateFormData] = React.useState({
@@ -69,7 +72,7 @@ const MovieEdit = (props) => {
                     <div className="form-group">
                         <label>Genre</label>
                         <select name="genre" className="form-control" onChange={handleChange}>
-                            {props.genres.map((term) =>
+                            {genres.map((term) =>
                                 <option value={term.id}>{term}</option>
                             )}
                         </select>

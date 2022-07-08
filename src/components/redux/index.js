@@ -7,7 +7,7 @@ import {setReviewData} from "./reviews/reducers";
 //   replaceMe: () => 'replace me'
 // });
 
-export const movieReducer = combineReducers({
+export const movieRootReducer = combineReducers({
   movieData: setMovieData,
   genreData: setGenreData,
   reviewData: setReviewData,

@@ -14,10 +14,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            movies: [],
-            genres: [],
             selectedMovie: {},
-            reviews: [],
             watchMovie: []
         }
     }
@@ -31,24 +28,18 @@ class App extends Component {
                         <Routes>
                             <Route path={"/movies/add"}
                                    element={
-                                       <MovieAdd onAddMovie={this.addMovie}
-                                                 genres={this.state.genres}/>
+                                       <MovieAdd onAddMovie={this.addMovie}/>
                                    }/>
                             <Route path={"/movies/edit/:id"}
                                    element={<MovieEdit onEditMovie={this.editMovie}
-                                                       genres={this.state.genres}
                                                        movie={this.state.selectedMovie}/>}/>
                             <Route path={"/movies/review/:id"}
                                    element={
                                        <ReviewCardStyled>
-                                           <MovieReview reviews={this.state.reviews}
-                                                        movie={this.state.selectedMovie}
-                                                        onAddReview={this.addReview}/>
+                                           <MovieReview movie={this.state.selectedMovie}/>
                                        </ReviewCardStyled>}/>
                             <Route path="movies"
-                                   element={<Movies movies={this.state.movies}
-                                                    genres={this.state.genres}
-                                                    onDelete={this.deleteMovie}
+                                   element={<Movies onDelete={this.deleteMovie}
                                                     onEdit={this.getMovie}
                                                     onReview={this.getMovie}
                                                     onAddWatch={this.addMovieToWatchlist}
