@@ -1,7 +1,21 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import EShopService from "../../../repository/emovieRepository";
+import {setMovieData} from "../../redux/movies/actions";
+import {useDispatch} from "react-redux";
 
-const movieTerm = (props) => {
+const MovieTerm = (props) => {
+    const dispatch = useDispatch();
+
+    const handleDeleteMovie = () => {
+
+        EShopService.deleteMovie(props.term.id).then(() => {
+            EShopService.fetchMovies().then((data) => {
+                dispatch(setMovieData(data.data));
+            });
+        });
+    }
+
     return (
         <div className={"card mb-3"} style={{width:"400px"}}>
             <div className={"row g-0"}>
@@ -23,7 +37,7 @@ const movieTerm = (props) => {
                             > <i className={"bi-bookmark-star me-1"} style={{color: "rgb(223,185,93)"}}/>
                             </a>
                             <a title={"Delete"} className={"btn btn-dark bg-dark"}
-                               onClick={() => props.onDelete(props.term.id)}
+                               onClick={handleDeleteMovie}
                             ><i className="bi bi-x-lg" style={{color: "rgb(223,185,93)"}}/></a>
                             <Link className={"btn btn-dark ml-2"}
                                   onClick={() => props.onEdit(props.term.id)}
@@ -39,7 +53,7 @@ const movieTerm = (props) => {
     )
 }
 
-export default movieTerm;
+export default MovieTerm;
 
 /*
         <div className={""}><div className={"wrapper"}>
