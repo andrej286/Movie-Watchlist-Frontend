@@ -3,9 +3,9 @@ import MoviesBootstrapper from "./MoviesBootstrapper";
 import App from "./App";
 
 const MovieModule = () => {
-  return <>MovieModule <MoviesBootstrapper>
+  return <MoviesBootstrapper>
     <App/>
-  </MoviesBootstrapper></>
+  </MoviesBootstrapper>
 }
 
 export default MovieModule;

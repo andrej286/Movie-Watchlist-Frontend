@@ -17,7 +17,7 @@ const MovieTerm = (props) => {
     }
 
     return (
-        <div className={"card mb-3"} style={{width:"400px"}}>
+        <div className={"card mb-3"} style={{width:"800px"}}>
             <div className={"row g-0"}>
                 <div className={"col-md-3"}>
                     <img src={props.term.movieImg}/>
